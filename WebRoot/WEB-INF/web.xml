@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0"
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+  
+  <!--监听器  -->
+  <listener>
+	  <listener-class>com.plat.orcl.listener.DestroyTimerListener</listener-class>
+  </listener>
+  <!--首页  -->
+  <welcome-file-list>
+  	<welcome-file>
+  		login.jsp
+  	</welcome-file>
+  </welcome-file-list>
+  
+  <!--初始化的参数  -->
+  <context-param>
+  	<description>检查的session中的参数名</description>
+  	<param-name>checkSessionKey</param-name>
+	<param-value>person</param-value>
+  </context-param>
+  
+  <context-param>
+  	<description>重定向的路径</description>
+  	<param-name>redirectURL</param-name>
+	<param-value>/login.jsp</param-value>
+  </context-param>
+	
+  <context-param>
+  	<description>过滤器不过滤的路径</description>
+  	<param-name>notCheckURLList</param-name>
+	<param-value>/login.jsp,/servlet/LoginUIServlet,/servlet/LoginServlet,/servlet/IndexUIServlet,/WEB-INF/jsp/indextea.jsp,/WEB-INF/jsp/indexstu.jsp</param-value>
+  </context-param>
+  
+  <context-param>
+  	<description>随机选择的人数</description>
+  	<param-name>randomPersonNum</param-name>
+	<param-value>5</param-value>
+  </context-param>
+  
+  <!--过滤器的配置  -->
+  <filter>
+  	<filter-name>CharactorEncodingFilter</filter-name>
+  	<filter-class>com.plat.orcl.filter.CharactorEncodingFilter</filter-class>
+ 	<init-param>
+ 		<param-name>encoding</param-name>
+ 		<param-value>UTF-8</param-value>
+ 	</init-param>
+  </filter>
+  <filter-mapping>
+  	<filter-name>CharactorEncodingFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  	<dispatcher>REQUEST</dispatcher>
+  	<dispatcher>FORWARD</dispatcher>
+  </filter-mapping>
+  
+  <filter>
+  	<filter-name>LoginFilter</filter-name>
+  	<filter-class>com.plat.orcl.filter.LoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>LoginFilter</filter-name>
+  	<url-pattern>*.jsp</url-pattern>
+  	<dispatcher>REQUEST</dispatcher>
+  	<dispatcher>FORWARD</dispatcher>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>LoginFilter</filter-name>
+  	<url-pattern>/servlet/*</url-pattern>
+  	<dispatcher>REQUEST</dispatcher>
+  	<dispatcher>FORWARD</dispatcher>
+  </filter-mapping>
+  <!--servlet的配置  -->
+  
+  <servlet>
+    <servlet-name>SeverletDemo1</servlet-name>
+    <servlet-class>com.plat.orcl.test.SeverletDemo1</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>RegisterUIServlet</servlet-name>
+    <servlet-class>com.plat.orcl.web.ui.RegisterUIServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>com.plat.orcl.web.controller.RegisterServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.plat.orcl.web.controller.LoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>IndexUIServlet</servlet-name>
+    <servlet-class>com.plat.orcl.web.ui.IndexUIServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>LoginUIServlet</servlet-name>
+    <servlet-class>com.plat.orcl.web.ui.LoginUIServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ResourceUIServlet</servlet-name>
+    <servlet-class>com.plat.orcl.web.ui.ResourceUIServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UploadServlet</servlet-name>
+    <servlet-class>com.plat.orcl.web.controller.UploadServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DownloadServlet</servlet-name>
+    <servlet-class>com.plat.orcl.web.controller.DownloadServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CourseUIServlet</servlet-name>
+    <servlet-class>com.plat.orcl.web.ui.CourseUIServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UpdateCourserServlet</servlet-name>
+    <servlet-class>com.plat.orcl.web.controller.UpdateCourserServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UpdateChapterServlet</servlet-name>
+    <servlet-class>com.plat.orcl.web.controller.UpdateChapterServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>TestUIServlet</servlet-name>
+    <servlet-class>com.plat.orcl.web.ui.TestUIServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SaveQuestionServlet</servlet-name>
+    <servlet-class>com.plat.orcl.web.controller.SaveQuestionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DeleteOneServlet</servlet-name>
+    <servlet-class>com.plat.orcl.web.controller.DeleteOneServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>EditQuestionServlet</servlet-name>
+    <servlet-class>com.plat.orcl.web.controller.EditQuestionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>EditOneServlet</servlet-name>
+    <servlet-class>com.plat.orcl.web.controller.EditOneServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SaveTestServlet</servlet-name>
+    <servlet-class>com.plat.orcl.web.controller.SaveTestServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>GetTestQuestionServlet</servlet-name>
+    <servlet-class>com.plat.orcl.web.controller.GetTestQuestionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>GetTestQuestionAjaxServlet</servlet-name>
+    <servlet-class>com.plat.orcl.web.controller.GetTestQuestionAjaxServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ScoreUIServlet</servlet-name>
+    <servlet-class>com.plat.orcl.web.ui.ScoreUIServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>GetChapterAjaxServlet</servlet-name>
+    <servlet-class>com.plat.orcl.web.controller.GetChapterAjaxServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UploadFormServlet</servlet-name>
+    <servlet-class>com.plat.orcl.web.controller.UploadFormServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>TeaScoreServlet</servlet-name>
+    <servlet-class>com.plat.orcl.web.controller.TeaScoreServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>SeverletDemo1</servlet-name>
+    <url-pattern>/servlet/SeverletDemo1</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>RegisterUIServlet</servlet-name>
+    <url-pattern>/servlet/RegisterUIServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>RegisterServlet</servlet-name>
+    <url-pattern>/servlet/RegisterServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/servlet/LoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>IndexUIServlet</servlet-name>
+    <url-pattern>/servlet/IndexUIServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginUIServlet</servlet-name>
+    <url-pattern>/servlet/LoginUIServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ResourceUIServlet</servlet-name>
+    <url-pattern>/servlet/ResourceUIServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UploadServlet</servlet-name>
+    <url-pattern>/servlet/UploadServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DownloadServlet</servlet-name>
+    <url-pattern>/servlet/DownloadServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CourseUIServlet</servlet-name>
+    <url-pattern>/servlet/CourseUIServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateCourserServlet</servlet-name>
+    <url-pattern>/servlet/UpdateCourserServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateChapterServlet</servlet-name>
+    <url-pattern>/servlet/UpdateChapterServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TestUIServlet</servlet-name>
+    <url-pattern>/servlet/TestUIServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SaveQuestionServlet</servlet-name>
+    <url-pattern>/servlet/SaveQuestionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteOneServlet</servlet-name>
+    <url-pattern>/servlet/DeleteOneServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EditQuestionServlet</servlet-name>
+    <url-pattern>/servlet/EditQuestionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EditOneServlet</servlet-name>
+    <url-pattern>/servlet/EditOneServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SaveTestServlet</servlet-name>
+    <url-pattern>/servlet/SaveTestServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetTestQuestionServlet</servlet-name>
+    <url-pattern>/servlet/GetTestQuestionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetTestQuestionAjaxServlet</servlet-name>
+    <url-pattern>/servlet/GetTestQuestionAjaxServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ScoreUIServlet</servlet-name>
+    <url-pattern>/servlet/ScoreUIServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetChapterAjaxServlet</servlet-name>
+    <url-pattern>/servlet/GetChapterAjaxServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UploadFormServlet</servlet-name>
+    <url-pattern>/servlet/UploadFormServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TeaScoreServlet</servlet-name>
+    <url-pattern>/servlet/TeaScoreServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!--错误页面配置  -->
+  <error-page>
+	<error-code>403</error-code>
+	<location>/WEB-INF/jsp/error403.jsp</location> 
+  </error-page>
+  
+  <error-page>
+	<error-code>404</error-code>
+	<location>/WEB-INF/jsp/error404.jsp</location> 
+  </error-page>
+  
+  <error-page>
+	<error-code>405</error-code>
+	<location>/WEB-INF/jsp/error405.jsp</location> 
+  </error-page>
+
+  <error-page>
+	<error-code>500</error-code>
+	<location>/WEB-INF/jsp/error500.jsp</location> 
+  </error-page>
+ 
+
+</web-app>
