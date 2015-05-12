@@ -32,13 +32,16 @@ public class TestUIServlet extends HttpServlet {
 			/*ArrayList<Chapter> chapterlist = csi.getChapterList(p.getPstate());
 			request.setAttribute("clist", lc);
 			request.setAttribute("chapterlist", chapterlist);*/
-			ArrayList<Chapter> chapterlist = csi.getChapterList(p.getPstate());
-			request.setAttribute("chapterlist", chapterlist);
-			
-			//取题列表
-			ArrayList<Question> qlist = tsi.getAllQuestion();
-			request.setAttribute("questionlist", qlist);
-			
+			if(p.getPstate().equals("t")){
+				//取章节列表
+				ArrayList<Chapter> chapterlist = csi.getChapterList(p.getPstate());
+				request.setAttribute("chapterlist", chapterlist);
+				//取题列表
+				ArrayList<Question> qlist = tsi.getAllQuestion();
+				request.setAttribute("questionlist", qlist);
+			}else if(p.getPstate().equals("s")){
+				
+			}
 			WebUtil.person2Right(p.getPstate(), "", "/WEB-INF/jsp/testtea.jsp", "/WEB-INF/jsp/teststu.jsp", request, response);
 			return;
 		}else if(flag.equals("2")){

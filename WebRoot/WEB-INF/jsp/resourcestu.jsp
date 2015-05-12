@@ -146,7 +146,12 @@
   <ul>
     <li><a href="${pageContext.request.contextPath}/servlet/IndexUIServlet"><i class="icon icon-home"></i> <span>主页</span></a></li>
 	<li><a href="${pageContext.request.contextPath}/servlet/ResourceUIServlet"><i class="icon icon-signal"></i> <span>资源管理</span></a></li>
-	<li><a href="${pageContext.request.contextPath}/servlet/TestUIServlet?flag=1"><i class="icon icon-file"></i><span>测试模块</span></a></li>	
+	<li class="submenu"><a href="#"><i class="icon icon-file"></i> <span>测试模块</span></a>
+		<ul>
+			<li><a href="${pageContext.request.contextPath}/servlet/TestUIServlet?flag=1">题库管理</a></li>
+			<li><a href="${pageContext.request.contextPath}/servlet/TestUIServlet?flag=3">试卷管理</a></li>
+		</ul>
+	</li>
 	<li><a href="${pageContext.request.contextPath}/servlet/ScoreUIServlet?flag=1"><i class="icon icon-file"></i><span>评分模块</span></a></li>	
 
     <li class="submenu"> <a href="#"><i class="icon icon-info-sign"></i> <span>Error</span> <span class="label label-important">4</span></a>
@@ -173,7 +178,8 @@
     </li>
   </ul>
 </div>
-<!--sidebar-menu-->	<div id="content">
+<!--sidebar-menu-->	
+<div id="content">
 		<div id="content-header">
 			<div id="breadcrumb">
 				<a href="${pageContext.request.contextPath}/servlet/IndexUIServlet"

@@ -54,7 +54,7 @@
 			<li class="dropdown" id="profile-messages"><a title="" href="#"
 				data-toggle="dropdown" data-target="#profile-messages"
 				class="dropdown-toggle"><i class="icon icon-user"></i> <span
-					class="text">欢迎${person.pname}老师</span><b class="caret"></b></a>
+					class="text">欢迎${person.pname}同学</span><b class="caret"></b></a>
 				<ul class="dropdown-menu">
 					<li><a href="#" data-reveal-id="person-info"><i
 							class="icon-user"></i> 我的简介</a></li>
@@ -141,66 +141,52 @@
 
 	<!--close-top-serch-->
 
-	<!--sidebar-menu-->
+<!--sidebar-menu-->      
 
-	<div id="sidebar">
-		<a href="#" class="visible-phone"><i class="icon icon-home"></i>
-			主页</a>
+<div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> 主页</a>
+  <ul>
+    <li><a href="${pageContext.request.contextPath}/servlet/IndexUIServlet"><i class="icon icon-home"></i> <span>主页</span></a></li>
+	<li><a href="${pageContext.request.contextPath}/servlet/ResourceUIServlet"><i class="icon icon-signal"></i> <span>资源管理</span></a></li>
+	<li class="submenu"><a href="#"><i class="icon icon-file"></i> <span>测试模块</span></a>
 		<ul>
-			<li><a
-				href="${pageContext.request.contextPath}/servlet/IndexUIServlet"><i
-					class="icon icon-home"></i> <span>主页</span></a></li>
-			<li><a
-				href="${pageContext.request.contextPath}/servlet/ResourceUIServlet"><i
-					class="icon icon-signal"></i> <span>资源管理</span></a></li>
-			<li><a
-				href="${pageContext.request.contextPath}/servlet/CourseUIServlet"><i
-					class="icon icon-inbox"></i> <span>课程设置</span></a></li>
-			<li class="submenu"><a href="#"><i class="icon icon-file"></i> <span>测试模块</span></a>
-				<ul>
-					<li><a href="${pageContext.request.contextPath}/servlet/TestUIServlet?flag=1">题库管理</a></li>
-					<li><a href="${pageContext.request.contextPath}/servlet/TestUIServlet?flag=2">试卷编写</a></li>
-					<li><a href="${pageContext.request.contextPath}/servlet/TestUIServlet?flag=3">试卷管理</a></li>
-				</ul>
-			</li>
-			<li class="submenu"><a href="#"><i class="icon icon-file"></i> <span>评分模块</span></a>
-				<ul>
-					<li><a href="${pageContext.request.contextPath}/servlet/ScoreUIServlet?flag=1">设计评分表</a></li>
-					<li><a href="${pageContext.request.contextPath}/servlet/ScoreUIServlet?flag=2">教师评分</a></li>
-					<li><a href="${pageContext.request.contextPath}/servlet/ScoreUIServlet?flag=3">分数统计</a></li>
-				</ul>
-			</li>
-
-			<li class="submenu"><a href="#"><i
-					class="icon icon-info-sign"></i> <span>Error</span> <span
-					class="label label-important">4</span></a>
-				<ul>
-					<li><a href="error403.html">Error 403</a></li>
-					<li><a href="error404.html">Error 404</a></li>
-					<li><a href="error405.html">Error 405</a></li>
-					<li><a href="error500.html">Error 500</a></li>
-				</ul></li>
-			<li class="content"><span>Monthly Bandwidth Transfer</span>
-				<div
-					class="progress progress-mini progress-danger active progress-striped">
-					<div style="width: 77%;" class="bar"></div>
-				</div> <span class="percent">77%</span>
-				<div class="stat">21419.94 / 14000 MB</div></li>
-			<li class="content"><span>Disk Space Usage</span>
-				<div class="progress progress-mini active progress-striped">
-					<div style="width: 87%;" class="bar"></div>
-				</div> <span class="percent">87%</span>
-				<div class="stat">604.44 / 4000 MB</div></li>
+			<li><a href="${pageContext.request.contextPath}/servlet/TestUIServlet?flag=1">题库管理</a></li>
+			<li><a href="${pageContext.request.contextPath}/servlet/TestUIServlet?flag=3">试卷管理</a></li>
 		</ul>
-	</div>
-	<!--sidebar-menu-->
+	</li>
+	<li><a href="${pageContext.request.contextPath}/servlet/ScoreUIServlet?flag=1"><i class="icon icon-file"></i><span>评分模块</span></a></li>	
+
+    <li class="submenu"> <a href="#"><i class="icon icon-info-sign"></i> <span>Error</span> <span class="label label-important">4</span></a>
+      <ul>
+        <li><a href="error403.html">Error 403</a></li>
+        <li><a href="error404.html">Error 404</a></li>
+        <li><a href="error405.html">Error 405</a></li>
+        <li><a href="error500.html">Error 500</a></li>
+      </ul>
+    </li>
+    <li class="content"> <span>Monthly Bandwidth Transfer</span>
+      <div class="progress progress-mini progress-danger active progress-striped">
+        <div style="width: 77%;" class="bar"></div>
+      </div>
+      <span class="percent">77%</span>
+      <div class="stat">21419.94 / 14000 MB</div>
+    </li>
+    <li class="content"> <span>Disk Space Usage</span>
+      <div class="progress progress-mini active progress-striped">
+        <div style="width: 87%;" class="bar"></div>
+      </div>
+      <span class="percent">87%</span>
+      <div class="stat">604.44 / 4000 MB</div>
+    </li>
+  </ul>
+</div>
+<!--sidebar-menu-->
 
 	<div id="content">
 		<div id="content-header">
 			<div id="breadcrumb">
 				<a href="${pageContext.request.contextPath}/servlet/IndexUIServlet"
 					title="主页" class="tip-bottom"><i class="icon-home"></i> 主页</a> <a
-					href="${pageContext.request.contextPath}/servlet/TestUIServlet"
+					href="${pageContext.request.contextPath}/servlet/TestUIServlet?flag=1"
 					class="current">测试模块</a>
 			</div>
 			<h1 style="font-family: Microsoft Yahei">测试模块</h1>
