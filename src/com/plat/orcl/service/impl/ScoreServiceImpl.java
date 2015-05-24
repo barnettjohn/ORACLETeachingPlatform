@@ -1,5 +1,6 @@
 package com.plat.orcl.service.impl;
 
+import java.io.ObjectInputStream.GetField;
 import java.util.ArrayList;
 
 import com.plat.orcl.dao.FormDao;
@@ -14,8 +15,10 @@ import com.plat.orcl.dao.impl.StuScoreDaoMysqlImpl;
 import com.plat.orcl.dao.impl.TestScoreDaoMysqlImpl;
 import com.plat.orcl.domain.Form;
 import com.plat.orcl.domain.FormQuestion;
+import com.plat.orcl.domain.Person;
 import com.plat.orcl.domain.Score;
 import com.plat.orcl.domain.StuScore;
+import com.plat.orcl.domain.Test;
 import com.plat.orcl.domain.TestScore;
 import com.plat.orcl.utils.WebUtil;
 import com.plat.orcl.web.formbean.AllScoreForm;
@@ -59,8 +62,10 @@ public class ScoreServiceImpl {
 					stuscoreall+=ss.getScore();
 				}
 				for(TestScore ts:lts){
-					if(ts.getT().getCid().equals(s.getCid())){
-						testscoreall+=ts.getScore();
+					if(ts.getT().getCid()!=null){
+						if(ts.getT().getCid().equals(s.getCid())){
+							testscoreall+=ts.getScore();
+						}
 					}
 				}
 				double stu = stuscoreall/stunum;
@@ -80,6 +85,27 @@ public class ScoreServiceImpl {
 	public void addFormQuestion(FormQuestion question) {
 		fqd.addFormQuestion(question);
 		
+	}
+	//插入学生评分记录
+	public void addStuScoreRecord(String formid,ArrayList<Person>pl,ArrayList<Person>pupl){
+		StuScore ss= new StuScore();
+		for(Person pup:pupl){
+			ss.setPidup(pup.getPid());
+			ss.setFormid(formid);
+			for(Person p:pl){
+				ss.setPid(p.getPid());
+				ssd.addStuScore(ss);
+			}
+		}
+	}
+	public ArrayList<StuScore> getStuScoreList(String xid, String yid) {
+		return (ArrayList<StuScore>) ssd.findStuScoreAllByString(xid, yid);
+	}
+	public Form getOneForm(String formid) {
+		return fd.findFormAllByString("formid",formid).get(0);
+	}
+	public void updateStuScore(StuScore ss) {
+		ssd.updateStuScore(ss);
 	}
 	
 }

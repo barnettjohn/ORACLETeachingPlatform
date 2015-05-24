@@ -32,7 +32,7 @@ public class UploadFormServlet extends HttpServlet {
 		//先添加form和formquestion
 		while(e.hasMoreElements()){
 			String name = e.nextElement();
-			if(name.equals("fanme")){
+			if(name.equals("fname")){
 				form.setFname(request.getParameter(name));
 			}else if(name.equals("chapter")){
 				chapterid=request.getParameter(name);
@@ -42,6 +42,7 @@ public class UploadFormServlet extends HttpServlet {
 		String formid = PubUtil.createGUID();
 		form.setFormid(formid);
 		ssi.addForm(form);
+		e = request.getParameterNames();
 		while(e.hasMoreElements()){
 			String name = e.nextElement();
 			if(name.contains("question")){
@@ -55,9 +56,9 @@ public class UploadFormServlet extends HttpServlet {
 			}
 		}
 		//这里面直接将这些操作放到线程里面去做
-		SendMail sendMail = new SendMail(p,chapterid,ssi,request.getServletContext());
+		SendMail sendMail = new SendMail(p,form,chapterid,ssi,request.getServletContext());
 		sendMail.start();
-		
+		response.sendRedirect(request.getContextPath()+"/servlet/ScoreUIServlet?flag=1");
 	}
 
 	

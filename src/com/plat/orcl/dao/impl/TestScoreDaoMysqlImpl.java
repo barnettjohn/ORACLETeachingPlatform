@@ -46,12 +46,13 @@ public class TestScoreDaoMysqlImpl implements TestScoreDao {
 		ResultSet rs = null;
 		try{
 			conn = JdbcUtil.getConn();
-			String sql = "insert into test_score values(?,?,?)";
+			String sql = "insert into test_score values(?,?,?,?)";
 			stmt = conn.prepareStatement(sql);
 			stmt.setString(1, ts.getPid());
 			stmt.setString(2, ts.getTestid());
 			stmt.setDouble(3, ts.getScore());
-						
+			stmt.setString(4, ts.getWrongq());
+			
 			stmt.executeUpdate();
 			
 		}catch(Exception e){
@@ -107,6 +108,7 @@ public class TestScoreDaoMysqlImpl implements TestScoreDao {
 				ts.setPid(rs.getString("pid"));
 				ts.setTestid(rs.getString("testid"));
 				ts.setScore(rs.getDouble("score"));
+				ts.setWrongq(rs.getString("wrongq"));
 				
 				list.add(ts);
 			}
@@ -172,6 +174,7 @@ public class TestScoreDaoMysqlImpl implements TestScoreDao {
 				ts.setPid(rs.getString("pid"));
 				ts.setTestid(rs.getString("testid"));
 				ts.setScore(rs.getDouble("score"));
+				ts.setWrongq(rs.getString("wrongq"));
 				
 				list.add(ts);
 			}
@@ -204,6 +207,7 @@ public class TestScoreDaoMysqlImpl implements TestScoreDao {
 				ts.setPid(rs.getString("pid"));
 				ts.setTestid(rs.getString("testid"));
 				ts.setScore(rs.getDouble("score"));
+				ts.setWrongq(rs.getString("wrongq"));
 				
 				ts.setP(pd .findPersonById(rs.getString("pid")));
 				ts.setT((td .findTestByString("testid", rs.getString("testid"))).get(0));

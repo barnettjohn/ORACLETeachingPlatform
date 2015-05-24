@@ -14,6 +14,7 @@ import com.plat.orcl.domain.Course;
 import com.plat.orcl.domain.Person;
 import com.plat.orcl.domain.Question;
 import com.plat.orcl.domain.Score;
+import com.plat.orcl.domain.StuScore;
 import com.plat.orcl.domain.Test;
 import com.plat.orcl.service.impl.CourseServiceImpl;
 import com.plat.orcl.service.impl.ScoreServiceImpl;
@@ -37,8 +38,12 @@ public class ScoreUIServlet extends HttpServlet {
 			//取题列表
 			ArrayList<Question> qlist = tsi.getAllQuestion();
 			request.setAttribute("questionlist", qlist);*/
-			
-			request.getRequestDispatcher("/WEB-INF/jsp/scoretea.jsp").forward(request, response);
+			//从stuscore表中取记录
+			if(p.getPstate().equals("s")){
+				ArrayList<StuScore> sslist = ssi.getStuScoreList("pidup",p.getPid());
+				request.setAttribute("sslist", sslist);
+			}
+			WebUtil.person2Right(p.getPstate(), "", "/WEB-INF/jsp/scoretea.jsp", "/WEB-INF/jsp/scorestu.jsp", request, response);
 			return;
 		}else if(flag.equals("2")){
 			//取（教师）分数列表

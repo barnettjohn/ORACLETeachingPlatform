@@ -140,7 +140,7 @@ public class StuScoreDaoMysqlImpl implements  StuScoreDao {
 		ResultSet rs = null;
 		try{
 			conn = JdbcUtil.getConn();
-			String sql = "update form set score=?,detail=? where pid=? and pidup=? and formid=?";
+			String sql = "update stu_score set score=?,detail=? where pid=? and pidup=? and formid=?";
 			stmt = conn.prepareStatement(sql);
 			stmt.setDouble(1, s.getScore());
 			stmt.setString(2, s.getDetail());
@@ -182,7 +182,7 @@ public class StuScoreDaoMysqlImpl implements  StuScoreDao {
 				ts.setScore(rs.getDouble("score"));
 				ts.setDetail(rs.getString("detail"));
 				ts.setP(pd .findPersonById(rs.getString("pid")));
-				ts.setP(pd.findPersonById(rs.getString("pidup")));
+				ts.setPup(pd.findPersonById(rs.getString("pidup")));
 				ts.setForm(fd .findFormByString("formid", rs.getString("formid")).get(0));
 				list.add(ts);
 			}
@@ -223,7 +223,7 @@ public class StuScoreDaoMysqlImpl implements  StuScoreDao {
 				ts.setScore(rs.getDouble("score"));
 				ts.setDetail(rs.getString("detail"));
 				ts.setP(pd.findPersonById(rs.getString("pid")));
-				ts.setP(pd.findPersonById(rs.getString("pidup")));
+				ts.setPup(pd.findPersonById(rs.getString("pidup")));
 				
 				list.add(ts);
 			}
@@ -264,7 +264,7 @@ public class StuScoreDaoMysqlImpl implements  StuScoreDao {
 				ts.setDetail(rs.getString("detail"));
 				
 				ts.setP(pd.findPersonById(rs.getString("pid")));
-				ts.setP(pd.findPersonById(rs.getString("pidup")));
+				ts.setPup(pd.findPersonById(rs.getString("pidup")));
 				ts.setForm(fd.findFormByString("formid", rs.getString("formid")).get(0));
 				list.add(ts);
 			}

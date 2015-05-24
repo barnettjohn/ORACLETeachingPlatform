@@ -12,6 +12,15 @@ public class StuScore {
 	private Form form ;
 	
 	
+	public StuScore(String formid, String pid, String pidup, double score) {
+		this.formid=formid;
+		this.pid=pid;
+		this.pidup=pidup;
+		this.score=score;
+	}
+	public StuScore() {
+	}
+	
 	public String getPid() {
 		return pid;
 	}

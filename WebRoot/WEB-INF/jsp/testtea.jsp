@@ -181,7 +181,7 @@
 			<div id="breadcrumb">
 				<a href="${pageContext.request.contextPath}/servlet/IndexUIServlet"
 					title="主页" class="tip-bottom"><i class="icon-home"></i> 主页</a> <a
-					href="#">测试模块</a><a href="${pageContext.request.contextPath}/servlet/TestUIServlet"
+					href="#">测试模块</a><a href="${pageContext.request.contextPath}/servlet/TestUIServlet?flag=1"
 					class="current" class="current">题库管理</a>
 			</div>
 			<h1 style="font-family: Microsoft Yahei">题库管理</h1>
@@ -208,19 +208,19 @@
 				            <div class="control-group">
 								<label class="control-label">题目内容：</label>
 								<div class="controls">
-								  <textarea  id="qcontent" name="qcontent"></textarea>
+								  <textarea  id="qcontent" name="qcontent">A.;&#13;&#10;B.;&#13;&#10;C.;&#13;&#10;D.;</textarea>
 								</div>
 				            </div>
 				            <div class="control-group">
 								<label class="control-label">正确答案：</label>
 								<div class="controls">
-								  <input id="qright" name="qright" type="text" placeholder="" />
+								  <input id="qright" name="qright" type="text" placeholder="大小写均可但别在答案中加标点符号" />
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label">答案解析：</label>
 								<div class="controls">
-									<textarea  id="qdetail" name="qdetail"></textarea>
+									<textarea  id="qdetail" name="qdetail" ></textarea>
 								</div>
 							</div>
 							<div class="control-group">

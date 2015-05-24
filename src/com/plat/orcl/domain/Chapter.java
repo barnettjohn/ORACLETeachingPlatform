@@ -2,6 +2,8 @@ package com.plat.orcl.domain;
 
 import java.util.ArrayList;
 
+import com.plat.orcl.utils.PubUtil;
+
 public class Chapter {
 	private String chaptid;
 	private String cid;
@@ -54,6 +56,11 @@ public class Chapter {
 	}
 	public void setP(ArrayList<Person> p) {
 		this.p = p;
+	}
+	@Override
+	public String toString() {
+		if(PubUtil.isEmptring(this.chaptid+this.chaptna+this.difficulty))return null;
+		else return super.toString();
 	}
 	
 	

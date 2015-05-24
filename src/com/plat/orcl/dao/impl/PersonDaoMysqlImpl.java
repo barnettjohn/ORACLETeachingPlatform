@@ -183,7 +183,7 @@ public class PersonDaoMysqlImpl implements PersonDao {
 		ResultSet rs = null;
 		try{
 			conn = JdbcUtil.getConn();
-			String sql = "update person_info set pname=?,password=?,pclass=?,email=?,group=?,pstate=? where pid=?";
+			String sql = "update person_info p set p.pname=?,p.password=?,p.pclass=?,p.email=?,p.group=?,p.pstate=? where p.pid=?";
 			stmt = conn.prepareStatement(sql);
 			stmt.setString(1, p.getPname());
 			stmt.setString(2, p.getPassword());
@@ -401,7 +401,7 @@ public class PersonDaoMysqlImpl implements PersonDao {
 			if( String.valueOf(yid) == null||String.valueOf(yid).trim().equals("")) throw new IdIsNullException("id为空");
 
 			conn = JdbcUtil.getConn();
-			String sql = "select * from person_info where "+xid+"=?";
+			String sql = "select * from person_info p where p."+xid+"=?";
 			stmt = conn.prepareStatement(sql);
 			stmt.setString(1, yid);
 			

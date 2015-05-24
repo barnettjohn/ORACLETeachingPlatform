@@ -1,5 +1,7 @@
 package com.plat.orcl.service.impl;
 
+import java.util.ArrayList;
+
 import com.plat.orcl.dao.PersonDao;
 import com.plat.orcl.dao.impl.PersonDaoMysqlImpl;
 import com.plat.orcl.domain.Person;
@@ -34,5 +36,11 @@ public class PersonServiceImpl {
 			throw new PersonNullException();
 		}
 		return p;
+	}
+	//找学生
+	public ArrayList<Person> findPerson(String xid,String yid){
+		
+		return (ArrayList<Person>) dao.findPersonByString(xid, yid);
+		
 	}
 }

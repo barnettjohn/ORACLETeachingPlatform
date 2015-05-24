@@ -51,7 +51,7 @@ public class WebUtil {
 			int i = 0;
 			Enumeration e = request.getParameterNames();
 			while(e.hasMoreElements()){
-				e.nextElement();
+				String s = (String) e.nextElement();
 				i++;
 			}
 			e = request.getParameterNames();
@@ -71,7 +71,8 @@ public class WebUtil {
 						BeanUtils.setProperty(bean, name, value);
 					}
 				}
-				l.add(bean);
+				String s = bean.toString();
+				if(!PubUtil.isEmptring(bean.toString())) l.add(bean);
 				e = request.getParameterNames();
 			}
 			

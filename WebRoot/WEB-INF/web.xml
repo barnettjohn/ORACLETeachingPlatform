@@ -31,7 +31,7 @@
   <context-param>
   	<description>过滤器不过滤的路径</description>
   	<param-name>notCheckURLList</param-name>
-	<param-value>/login.jsp,/servlet/LoginUIServlet,/servlet/LoginServlet,/servlet/IndexUIServlet,/WEB-INF/jsp/indextea.jsp,/WEB-INF/jsp/indexstu.jsp</param-value>
+	<param-value>/login.jsp,/servlet/LoginUIServlet,/servlet/LoginServlet,/servlet/IndexUIServlet,/WEB-INF/jsp/indextea.jsp,/WEB-INF/jsp/indexstu.jsp,/servlet/RegisterUIServlet,/WEB-INF/jsp/register.jsp</param-value>
   </context-param>
   
   <context-param>
@@ -216,6 +216,45 @@
     <servlet-name>TeaScoreServlet</servlet-name>
     <servlet-class>com.plat.orcl.web.controller.TeaScoreServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>TestDetailServlet</servlet-name>
+    <servlet-class>com.plat.orcl.web.controller.TestDetailServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>StuScoreServlet</servlet-name>
+    <servlet-class>com.plat.orcl.web.controller.StuScoreServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>GetStuScoreServlet</servlet-name>
+    <servlet-class>com.plat.orcl.web.controller.GetStuScoreServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ScoreDetailServlet</servlet-name>
+    <servlet-class>com.plat.orcl.web.controller.ScoreDetailServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DoStuScoreServlet</servlet-name>
+    <servlet-class>com.plat.orcl.web.controller.DoStuScoreServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>TestDetailServlet2</servlet-name>
+    <servlet-class>com.plat.orcl.web.controller.TestDetailServlet2</servlet-class>
+  </servlet>
+
+
+
 
 
 
@@ -332,6 +371,31 @@
   <servlet-mapping>
     <servlet-name>TeaScoreServlet</servlet-name>
     <url-pattern>/servlet/TeaScoreServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TestDetailServlet</servlet-name>
+    <url-pattern>/servlet/TestDetailServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>StuScoreServlet</servlet-name>
+    <url-pattern>/servlet/StuScoreServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetStuScoreServlet</servlet-name>
+    <url-pattern>/servlet/GetStuScoreServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DoStuScoreServlet</servlet-name>
+    <url-pattern>/servlet/DoStuScoreServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ScoreDetailServlet</servlet-name>
+    <url-pattern>/servlet/ScoreDetailServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>TestDetailServlet2</servlet-name>
+    <url-pattern>/servlet/TestDetailServlet2</url-pattern>
   </servlet-mapping>
   
   <!--错误页面配置  -->

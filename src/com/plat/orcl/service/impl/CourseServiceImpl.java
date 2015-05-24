@@ -101,9 +101,9 @@ public class CourseServiceImpl {
 
 	public int dividedIntoTeams(ArrayList<Chapter> chapterlist) {
 		ArrayList<Person>pl = (ArrayList<Person>) pd.findPersonByString("pstate", "s");
-		HashSet<Person> phs = new HashSet<Person>();
-		Iterator<Person> iterator = phs.iterator();
 		int total = pl.size();
+		HashSet<Person> phs = new HashSet<Person>();
+		
 		int sum=0 ;
 		//这里随机取person很巧妙 直接用hashset的特性取随机的hash地址即为随机的
 		for(Person p : pl){
@@ -113,6 +113,7 @@ public class CourseServiceImpl {
 			int num = Integer.parseInt(chapter.getDifficulty());
 			sum+=num;
 		}
+		Iterator<Person> iterator = phs.iterator();
 		if(sum == total){
 			for(Chapter chapter : chapterlist){
 				int num = Integer.parseInt(chapter.getDifficulty());

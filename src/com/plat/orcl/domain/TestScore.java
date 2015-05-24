@@ -4,6 +4,7 @@ public class TestScore {
 	private String pid;
 	private String testid;
 	private double score;
+	private String wrongq;
 	
 	private Person p;
 	private Test t;
@@ -25,6 +26,12 @@ public class TestScore {
 	}
 	public void setScore(double score) {
 		this.score = score;
+	}
+	public String getWrongq() {
+		return wrongq;
+	}
+	public void setWrongq(String wrongq) {
+		this.wrongq = wrongq;
 	}
 	public Person getP() {
 		return p;

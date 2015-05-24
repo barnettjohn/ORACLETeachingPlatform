@@ -43,6 +43,7 @@ public class PubUtil {
 
 	// 导出excel存放位置
 	public static final String EXCL_SAVE_PATH = "E:/excel";
+	public static final String MAILTIMER ="mailTimer:";
 
 	/***
 	 * @Description: 常规判断字符串为空

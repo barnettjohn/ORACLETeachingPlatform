@@ -52,7 +52,7 @@ public class QuestionDaoMysqlImpl implements QuestionDao {
 			stmt.setString(1, q.getQid());
 			stmt.setString(2, q.getQname());
 			stmt.setString(3, q.getQcontent());
-			stmt.setString(4, q.getQright());
+			stmt.setString(4, q.getQright().toLowerCase());
 			stmt.setString(5, q.getQdetail());
 			stmt.setString(6, q.getChaptid());
 			stmt.setString(7, q.getPupid());
@@ -105,7 +105,7 @@ public class QuestionDaoMysqlImpl implements QuestionDao {
 			stmt = conn.prepareStatement(sql);
 			stmt.setString(1, q.getQname());
 			stmt.setString(2, q.getQcontent());
-			stmt.setString(3, q.getQright());
+			stmt.setString(3, q.getQright().toLowerCase());
 			stmt.setString(4, q.getQdetail());
 			stmt.setString(5, q.getChaptid());
 			stmt.setString(6, q.getPupid());
