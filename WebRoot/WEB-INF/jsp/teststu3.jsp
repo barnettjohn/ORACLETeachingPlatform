@@ -38,7 +38,7 @@
 			<li class="dropdown" id="profile-messages"><a title="" href="#"
 				data-toggle="dropdown" data-target="#profile-messages"
 				class="dropdown-toggle"><i class="icon icon-user"></i> <span
-					class="text">欢迎${person.pname}老师</span><b class="caret"></b></a>
+					class="text">欢迎${person.pname}同学</span><b class="caret"></b></a>
 				<ul class="dropdown-menu">
 					<li><a data-toggle="modal" href="#modal-add-event2" ><i
 							class="icon-user"></i> 我的简介</a></li>

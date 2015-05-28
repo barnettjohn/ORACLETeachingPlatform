@@ -7,7 +7,6 @@
 <title>ORACLE教学平台</title>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/reveal.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-responsive.min.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/fullcalendar.css" />
@@ -35,7 +34,7 @@
   <ul class="nav">
     <li  class="dropdown" id="profile-messages" ><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">欢迎${person.pname}同学</span><b class="caret"></b></a>
       <ul class="dropdown-menu">
-        <li><a href="#" data-reveal-id="person-info" ><i class="icon-user" ></i> 我的简介</a></li>
+        <li><a data-toggle="modal" href="#modal-add-event2" ><i class="icon-user"></i> 我的简介</a></li>
         <li class="divider"></li>
         <li><a href="#"><i class="icon-check"></i> 我的任务</a></li>
         <li class="divider"></li>
@@ -58,62 +57,38 @@
   </ul>
 </div>
 
-<div id="person-info" class="reveal-modal">
-    <div class="widget-box">
-          <div class="widget-title"> <span class="icon"> <i class="icon-user"></i> </span>
-            <h5>个人简介</h5>
-           </div>
-          <div class="widget-content nopadding">
-            <table class="table table-bordered table-striped">
-              <tbody>
-                <tr class="odd gradeX">
-                  <td>姓名：</td>
-                  <td>${person.pname}</td>
-                  <td rowspan="3" ><img width="40" height="40" alt="User" 
-                  src="${pageContext.request.contextPath}/img/demo/av1.jpg"> </td>
-                </tr>
-                <tr class="even gradeC">
-                  <td>班级：</td>
-                  <td>${person.pclass}</td>
-                </tr>
-                <tr class="odd gradeA">
-                  <td>email：</td>
-                  <td>${person.email}</td>
-                </tr>
-                <tr class="even gradeA">
-                  <td>组   别：</td>
-                  <td colspan="2">${person.group}</td>
-                  
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-   <%--  <div class="widget-box">
-          <div class="widget-title"> <span class="icon"> <i class="icon-user"></i> </span>
-            <h5>个人简介</h5>
-          </div>
-          <div class="widget-content nopadding">
-            <ul class="recent-posts">
-              <li>
-                <div class="user-thumb"> <img width="40" height="40" alt="User" src="${pageContext.request.contextPath}/img/demo/av1.jpg"> </div>
-                <div class="article-post">
-                  <div class="fr"><a href="#" class="btn btn-primary btn-mini" data-reveal-id="perso-info">编辑</a></div>
-                  <span class="user-info">
-                  	姓   名：${person.pname}
-                  	班   级：${person.pclass}</br>
-                  	email：${person.email}</br>
-                  	组   别：${person.group}</br>
-                  	</span>
-                 <!--  <p><a href="#">This is a much longer one that will go on for a few lines.It has multiple paragraphs and is full of waffle to pad out the comment.</a> </p> -->
-                </div>
-              </li>
-              
-            </ul>
-          </div>
-    </div> --%>
-    <a class="close-reveal-modal">&#215;</a>
-</div>
+<div class="modal hide fade" id="modal-add-event2">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">×</button>
+			<h3>个人简介</h3>
+		</div>
+		<div class="modal-body  nopadding" >
+			<table class="table table-bordered table-striped">
+				<tbody>
+					<tr class="odd gradeX">
+						<td>姓名：</td>
+						<td>${person.pname}</td>
+						<td rowspan="3"><img width="40" height="40" alt="User"
+							src="${pageContext.request.contextPath}/img/demo/av1.jpg">
+						</td>
+					</tr>
+					<tr class="even gradeC">
+						<td>班级：</td>
+						<td>${person.pclass}</td>
+					</tr>
+					<tr class="odd gradeA">
+						<td>email：</td>
+						<td>${person.email}</td>
+					</tr>
+					<tr class="even gradeA">
+						<td>组 别：</td>
+						<td colspan="2">${person.group}</td>
+
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
 
 <div id="perso-info" class="reveal-modal">
     <div class="widget-box">
@@ -503,7 +478,6 @@
 
 <!--end-Footer-part-->
 
-<script src="${pageContext.request.contextPath}/js/jquery.reveal.js"></script>
 <script src="${pageContext.request.contextPath}/js/excanvas.min.js"></script> 
 <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script> 
 <%-- <script src="${pageContext.request.contextPath}/js/jquery-1.4.4.min.js"></script>  --%>

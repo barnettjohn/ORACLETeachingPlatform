@@ -8,8 +8,6 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/reveal.css">
-<link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/bootstrap.min.css" />
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/bootstrap-responsive.min.css" />
@@ -55,9 +53,9 @@
 			<li class="dropdown" id="profile-messages"><a title="" href="#"
 				data-toggle="dropdown" data-target="#profile-messages"
 				class="dropdown-toggle"><i class="icon icon-user"></i> <span
-					class="text">欢迎${person.pname}老师</span><b class="caret"></b></a>
+					class="text">欢迎${person.pname}同学</span><b class="caret"></b></a>
 				<ul class="dropdown-menu">
-					<li><a href="#" data-reveal-id="person-info"><i
+					<li><a data-toggle="modal" href="#modal-add-event2" ><i
 							class="icon-user"></i> 我的简介</a></li>
 					<li class="divider"></li>
 					<li><a href="#"><i class="icon-check"></i> 我的任务</a></li>
@@ -92,41 +90,37 @@
 		</ul>
 	</div>
 
-	<div id="person-info" class="reveal-modal">
-		<div class="widget-box">
-			<div class="widget-title">
-				<span class="icon"> <i class="icon-user"></i>
-				</span>
-				<h5>个人简介</h5>
-			</div>
-			<div class="widget-content nopadding">
-				<table class="table table-bordered table-striped">
-					<tbody>
-						<tr class="odd gradeX">
-							<td>姓名：</td>
-							<td>${person.pname}</td>
-							<td rowspan="3"><img width="40" height="40" alt="User"
-								src="${pageContext.request.contextPath}/img/demo/av1.jpg">
-							</td>
-						</tr>
-						<tr class="even gradeC">
-							<td>班级：</td>
-							<td>${person.pclass}</td>
-						</tr>
-						<tr class="odd gradeA">
-							<td>email：</td>
-							<td>${person.email}</td>
-						</tr>
-						<tr class="even gradeA">
-							<td>组 别：</td>
-							<td colspan="2">${person.group}</td>
-
-						</tr>
-					</tbody>
-				</table>
-			</div>
+	<div class="modal hide fade" id="modal-add-event2">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">×</button>
+			<h3>个人简介</h3>
 		</div>
-		<a class="close-reveal-modal">&#215;</a>
+		<div class="modal-body  nopadding" >
+			<table class="table table-bordered table-striped">
+				<tbody>
+					<tr class="odd gradeX">
+						<td>姓名：</td>
+						<td>${person.pname}</td>
+						<td rowspan="3"><img width="40" height="40" alt="User"
+							src="${pageContext.request.contextPath}/img/demo/av1.jpg">
+						</td>
+					</tr>
+					<tr class="even gradeC">
+						<td>班级：</td>
+						<td>${person.pclass}</td>
+					</tr>
+					<tr class="odd gradeA">
+						<td>email：</td>
+						<td>${person.email}</td>
+					</tr>
+					<tr class="even gradeA">
+						<td>组 别：</td>
+						<td colspan="2">${person.group}</td>
+
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
 
 	<!--close-top-Header-menu-->
@@ -264,8 +258,6 @@
 		</div>
 	</div>
 	<!--end-Footer-part-->
-	<script src="http://code.jquery.com/jquery-1.7.min.js"></script>
-	<script src="${pageContext.request.contextPath}/js/jquery.reveal.js"></script>
 	<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 	<!--管理整个框架的js  -->
