@@ -161,12 +161,13 @@
 					<li><a href="error405.html">Error 405</a></li>
 					<li><a href="error500.html">Error 500</a></li>
 				</ul></li>
-			<li class="content"><span>Monthly Bandwidth Transfer</span>
-				<div
-					class="progress progress-mini progress-danger active progress-striped">
-					<div style="width: 77%;" class="bar"></div>
-				</div> <span class="percent">77%</span>
-				<div class="stat">21419.94 / 14000 MB</div></li>
+			<li class="content"> <span>在线学生人数</span>
+		      <div class="progress progress-mini progress-danger active progress-striped">
+		        <div style="width: ${online/onLineStu*100}%;" class="bar"></div>
+		      </div>
+		      <span class="percent"></span>
+		      <div class="stat">${online}/${onLineStu}</div>
+		    </li>
 			<li class="content"><span>Disk Space Usage</span>
 				<div class="progress progress-mini active progress-striped">
 					<div style="width: 87%;" class="bar"></div>
@@ -214,8 +215,8 @@
 								      <th>测试得分</th>
 								      <th>期末考试得分</th>
 								      <th>总分</th>
-								      <th>操作</th>
-								    </tr>
+<!-- 								      <th>操作</th>
+ -->								    </tr>
 								  </thead>
 								  <tbody>
 								  <c:forEach var="score" items="${allscorelist}">
@@ -228,10 +229,10 @@
 										<td style="text-align:center">${score.test}</td>
 										<td style="text-align:center">${score.finalscore}</td>
 										<td style="text-align:center">${score.total}</td>
-										<td style="text-align:center">
+										<!-- <td style="text-align:center">
 											<a href="#" class="btn btn-primary btn-mini">修改</a> 
 											<a href="#" class="btn btn-danger btn-mini">删除</a>
-										</td>
+										</td> -->
 									</tr>
 								  </c:forEach>
 								  </tbody>

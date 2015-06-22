@@ -173,12 +173,13 @@
 					<li><a href="error405.html">Error 405</a></li>
 					<li><a href="error500.html">Error 500</a></li>
 				</ul></li>
-			<li class="content"><span>Monthly Bandwidth Transfer</span>
-				<div
-					class="progress progress-mini progress-danger active progress-striped">
-					<div style="width: 77%;" class="bar"></div>
-				</div> <span class="percent">77%</span>
-				<div class="stat">21419.94 / 14000 MB</div></li>
+			<li class="content"> <span>在线学生人数</span>
+		      <div class="progress progress-mini progress-danger active progress-striped">
+		        <div style="width: ${online/onLineStu*100}%;" class="bar"></div>
+		      </div>
+		      <span class="percent"></span>
+		      <div class="stat">${online}/${onLineStu}</div>
+		    </li>
 			<li class="content"><span>Disk Space Usage</span>
 				<div class="progress progress-mini active progress-striped">
 					<div style="width: 87%;" class="bar"></div>
@@ -220,7 +221,7 @@
 									</div> &#12288
 									<button type="submit" class="btn btn-mini btn-success">上传</button>
 									<text>${message}</text>
-									<a id="add-event" data-toggle="modal" href="#modal-add-event"
+									<!-- <a id="add-event" data-toggle="modal" href="#modal-add-event"
 									class="btn btn-inverse btn-mini">
 										<i class="icon-plus icon-white"></i> Add new event
 									</a>
@@ -241,7 +242,7 @@
 												event</a>
 										</div>
 									</div>
-									
+ -->									
 								</div>
 							</div>
 

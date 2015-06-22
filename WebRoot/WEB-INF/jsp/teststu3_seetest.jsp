@@ -142,12 +142,12 @@
         <li><a href="error500.html">Error 500</a></li>
       </ul>
     </li>
-    <li class="content"> <span>Monthly Bandwidth Transfer</span>
+    <li class="content"> <span>在线学生人数</span>
       <div class="progress progress-mini progress-danger active progress-striped">
-        <div style="width: 77%;" class="bar"></div>
+        <div style="width: ${online/onLineStu*100}%;" class="bar"></div>
       </div>
-      <span class="percent">77%</span>
-      <div class="stat">21419.94 / 14000 MB</div>
+      <span class="percent"></span>
+      <div class="stat">${online}/${onLineStu}</div>
     </li>
     <li class="content"> <span>Disk Space Usage</span>
       <div class="progress progress-mini active progress-striped">
@@ -166,10 +166,10 @@
 				<a href="${pageContext.request.contextPath}/servlet/IndexUIServlet"
 					title="主页" class="tip-bottom"><i class="icon-home"></i> 主页</a> <a
 					href="#">测试模块</a><a href="${pageContext.request.contextPath}/servlet/TestUIServlet?flag=3"
-					class="current" class="current">试卷管理</a><a href="${pageContext.request.contextPath}/servlet/TestDetailServlet?testid=${test.testid}"
-					class="current" class="current">答题</a>
+					class="current" class="current">试卷管理</a><a href="${pageContext.request.contextPath}/servlet/TestDetailServlet2?testid=${test.testid}"
+					class="current" class="current">试卷详情</a>
 			</div>
-			<h1 style="font-family: Microsoft Yahei">答题</h1>
+			<h1 style="font-family: Microsoft Yahei">试卷详情</h1>
 		</div>
 		<div class="container-fluid">
 			<hr>

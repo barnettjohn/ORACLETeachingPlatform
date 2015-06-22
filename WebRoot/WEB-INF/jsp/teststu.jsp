@@ -157,12 +157,12 @@
         <li><a href="error500.html">Error 500</a></li>
       </ul>
     </li>
-    <li class="content"> <span>Monthly Bandwidth Transfer</span>
+    <li class="content"> <span>在线学生人数</span>
       <div class="progress progress-mini progress-danger active progress-striped">
-        <div style="width: 77%;" class="bar"></div>
+        <div style="width: ${online/onLineStu*100}%;" class="bar"></div>
       </div>
-      <span class="percent">77%</span>
-      <div class="stat">21419.94 / 14000 MB</div>
+      <span class="percent"></span>
+      <div class="stat">${online}/${onLineStu}</div>
     </li>
     <li class="content"> <span>Disk Space Usage</span>
       <div class="progress progress-mini active progress-striped">
@@ -207,7 +207,7 @@
 				            <div class="control-group">
 								<label class="control-label">题目内容：</label>
 								<div class="controls">
-								  <textarea  id="qcontent" name="qcontent"></textarea>
+								  <textarea  rows="4"  id="qcontent" name="qcontent">A.;&#13;&#10;B.;&#13;&#10;C.;&#13;&#10;D.;</textarea>
 								</div>
 				            </div>
 				            <div class="control-group">
@@ -312,7 +312,7 @@
 								      <th>题目名</th>
 								      <th>所属章节</th>
 								      <th>上传人</th>
-								      <th>操作</th>
+								      <!-- <th>操作</th> -->
 								    </tr>
 								  </thead>
 								  <tbody>
@@ -323,10 +323,10 @@
 											<td><a data-toggle="modal" href="#modal${question.qid}" >${question.qname}</a></td>
 											<td>${question.chapter.chaptna}</td>
 											<td>${question.p.pname}</td>
-											<td style="text-align:center">
+											<%-- <td style="text-align:center">
 												<a href="${pageContext.request.contextPath}/servlet/DeleteOneServlet?qid=${question.qid}" class="btn btn-primary btn-mini">修改</a> 
 												<a href="${pageContext.request.contextPath}/servlet/EditOneServlet?qid=${question.qid}" class="btn btn-danger btn-mini">删除</a>
-											</td>
+											</td> --%>
 										</tr>
 										<div class="modal hide fade" id="modal${question.qid}">
 											<div class="modal-header">
@@ -370,9 +370,9 @@
 									</c:forEach>
 								  </tbody>
 								</table>
-								<div class="form-actions">
+								<!-- <div class="form-actions">
 									<button type="submit" class="btn btn-success">删除</button>
-								</div>
+								</div> -->
 							</form>
 						</div>
 					</div>

@@ -161,12 +161,13 @@
 					<li><a href="error405.html">Error 405</a></li>
 					<li><a href="error500.html">Error 500</a></li>
 				</ul></li>
-			<li class="content"><span>Monthly Bandwidth Transfer</span>
-				<div
-					class="progress progress-mini progress-danger active progress-striped">
-					<div style="width: 77%;" class="bar"></div>
-				</div> <span class="percent">77%</span>
-				<div class="stat">21419.94 / 14000 MB</div></li>
+			<li class="content"> <span>在线学生人数</span>
+		      <div class="progress progress-mini progress-danger active progress-striped">
+		        <div style="width: ${online/onLineStu*100}%;" class="bar"></div>
+		      </div>
+		      <span class="percent"></span>
+		      <div class="stat">${online}/${onLineStu}</div>
+		    </li>
 			<li class="content"><span>Disk Space Usage</span>
 				<div class="progress progress-mini active progress-striped">
 					<div style="width: 87%;" class="bar"></div>
@@ -181,7 +182,7 @@
 			<div id="breadcrumb">
 				<a href="${pageContext.request.contextPath}/servlet/IndexUIServlet"
 					title="主页" class="tip-bottom"><i class="icon-home"></i> 主页</a> <a
-					href="#">测试模块</a><a href="${pageContext.request.contextPath}/servlet/TestUIServlet"
+					href="#">测试模块</a><a href="${pageContext.request.contextPath}/servlet/TestUIServlet?flag=3"
 					class="current" class="current">试卷管理</a>
 			</div>
 			<h1 style="font-family: Microsoft Yahei">试卷管理</h1>
@@ -206,8 +207,8 @@
 							      <th>做过此试卷学生分数</th>
 							      <th>试卷上传时间</th>
 							      <th>试卷细节</th>
-							      <th>操作</th>
-							      
+							      <!-- <th>操作</th>
+							       -->
 							    </tr>
 							  </thead>
 							  <tbody>
@@ -220,11 +221,92 @@
 										<td><a data-toggle="modal" href="#modal${test.testid}2" >${test.testname}</a></td>
 										<td>${test.time}</td>
 										<td>${test.detail}</td>
-										
-										<td style="text-align:center">
+										<div class="modal hide fade" id="modal${test.testid}1">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">×</button>
+												<h3>试卷详情</h3>
+											</div>
+											<div class="modal-body">
+												<ul class="recent-posts">
+												<c:forEach var="question" items="${test.qList}">
+													<li>
+													<input id="qid" name="qid" type="hidden" value="${question.q.qid}" />
+													<div class="control-group">
+														<label class="control-label">题目名称：</label>
+														<div class="controls">
+														${question.q.qname}
+														</div>
+													</div>
+											           <div class="control-group">
+														<label class="control-label">题目内容：</label>
+														<div class="controls">
+														${question.q.qcontent}
+														</div>
+											           </div>
+											           <div class="control-group">
+														<label class="control-label">正确答案：</label>
+														<div class="controls">
+														${question.q.qright}
+														</div>
+													</div>
+													<div class="control-group">
+														<label class="control-label">答案解析：</label>
+														<div class="controls">
+														${question.q.qdetail}
+														</div>
+													</div>
+													<div class="control-group">
+														<label class="control-label">所属章节：</label>
+														<div class="controls">
+															${question.q.chapter.chaptid} · ${question.q.chapter.chaptna}
+														</div>
+													</div>
+													</li>
+												</c:forEach>
+												</ul>
+											</div>
+										</div>
+										<div class="modal hide fade" id="modal${test.testid}2">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">×</button>
+												<h3>答过此试卷学生分数信息</h3>
+											</div>
+											<div class="modal-body">
+												<c:if test="${empty test.sList}">
+													无成绩列表
+												</c:if>
+												<ul class="recent-posts">
+
+												<c:forEach var="ts" items="${test.sList}">
+													<li>
+													<input id="pid" name="pid" type="hidden" value="${ts.p.pid}" />
+													<div class="control-group">
+														<label class="control-label">学生学号：</label>
+														<div class="controls">
+														${ts.p.pid}
+														</div>
+													</div>
+													<div class="control-group">
+														<label class="control-label">学生姓名：</label>
+														<div class="controls">
+														${ts.p.pname}
+														</div>
+													</div>
+										           <div class="control-group">
+														<label class="control-label">学生分数：</label>
+														<div class="controls">
+														${ts.score}
+														</div>
+										           </div>
+										           </li>
+												</c:forEach>
+									            </ul>
+											</div>
+										</div>
+										<%-- <td style="text-align:center">
 											<a href="${pageContext.request.contextPath}/servlet/EditOneTestServlet?testid=${test.testid}" class="btn btn-primary btn-mini">修改</a> 
 											<a href="${pageContext.request.contextPath}/servlet/DeleteOneTestServlet?qid=${test.testid}" class="btn btn-danger btn-mini">删除</a>
-										</td>
+										</td> --%>
 									</tr>
 								</c:forEach>
 							  </tbody>

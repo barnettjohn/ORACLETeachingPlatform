@@ -8,6 +8,10 @@
   <listener>
 	  <listener-class>com.plat.orcl.listener.DestroyTimerListener</listener-class>
   </listener>
+  <listener>
+	  <listener-class>com.plat.orcl.listener.ContOnlineListener</listener-class>
+  </listener>
+  
   <!--首页  -->
   <welcome-file-list>
   	<welcome-file>
@@ -31,7 +35,7 @@
   <context-param>
   	<description>过滤器不过滤的路径</description>
   	<param-name>notCheckURLList</param-name>
-	<param-value>/login.jsp,/servlet/LoginUIServlet,/servlet/LoginServlet,/servlet/IndexUIServlet,/WEB-INF/jsp/indextea.jsp,/WEB-INF/jsp/indexstu.jsp,/servlet/RegisterUIServlet,/WEB-INF/jsp/register.jsp</param-value>
+	<param-value>/login.jsp,/servlet/LoginUIServlet,/servlet/LoginServlet,/servlet/IndexUIServlet,/WEB-INF/jsp/indextea.jsp,/WEB-INF/jsp/indexstu.jsp,/servlet/RegisterServlet,/servlet/RegisterUIServlet,/WEB-INF/jsp/register.jsp</param-value>
   </context-param>
   
   <context-param>

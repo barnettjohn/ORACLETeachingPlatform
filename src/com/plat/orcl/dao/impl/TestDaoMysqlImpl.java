@@ -113,7 +113,7 @@ public class TestDaoMysqlImpl implements TestDao {
 				t.setCid(rs.getString("cid"));
 				
 				t.setqList(tqd .findTestQuestionAllByString("testid", rs.getString("testid")));
-				t.setsList(tsd.findTestScoreByString("testid", rs.getString("testid")));
+				t.setsList(tsd.findTestScoreAllByString("testid", rs.getString("testid")));
 				t.setC(cd .findCourseById(rs.getString("cid")));
 				list.add(t);
 			}

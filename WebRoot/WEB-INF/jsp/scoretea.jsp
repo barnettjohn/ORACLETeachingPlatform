@@ -161,12 +161,13 @@
 					<li><a href="error405.html">Error 405</a></li>
 					<li><a href="error500.html">Error 500</a></li>
 				</ul></li>
-			<li class="content"><span>Monthly Bandwidth Transfer</span>
-				<div
-					class="progress progress-mini progress-danger active progress-striped">
-					<div style="width: 77%;" class="bar"></div>
-				</div> <span class="percent">77%</span>
-				<div class="stat">21419.94 / 14000 MB</div></li>
+			<li class="content"> <span>在线学生人数</span>
+		      <div class="progress progress-mini progress-danger active progress-striped">
+		        <div style="width: ${online/onLineStu*100}%;" class="bar"></div>
+		      </div>
+		      <span class="percent"></span>
+		      <div class="stat">${online}/${onLineStu}</div>
+		    </li>
 			<li class="content"><span>Disk Space Usage</span>
 				<div class="progress progress-mini active progress-striped">
 					<div style="width: 87%;" class="bar"></div>
@@ -207,29 +208,29 @@
 					    <div class="todo">
 					      <ul>
 					      	<li class="clearfix">
-						      	<div class="txt">评分表表名：<span class="todotext" name="fname"> Luanch This theme on Themeforest </span>所属章节： <span class="todotext " name="chaptid" > Luanch This theme on Themeforest </span> </div>
+						      	<div class="txt"><span class="label label-important">评分表表名：</span><span class="todotext" name="fname"> 善于把握课程标准，注重通过灵活整合教学内容，适应学生个性差异和进行能力培养 </span><span class="label label-important">所属章节：</span> <span class="todotext " name="chaptid" >4</span> </div>
 						      	<!-- <input disabled='' type="text" placeholder="表名不要超过45个字" />
 				                <select>
 				                </select> -->
 				            </li>
 					        <li class="clearfix">
-					          <div class="txt">问题：<span class="todotext " name="question"> Luanch This theme on Themeforest </span>权重： <span class="todotext " name="power"> Luanch This theme on Themeforest </span> </div>
+					          <div class="txt"><span class="label label-info">问题：</span><span class="todotext " name="question"> 讲授内容与活动内容具有科学性、思想性和逻辑性 </span><span class="label label-success">权重：</span> <span class="todotext " name="power">1</span> </div>
 					          <div class="pull-right"> <a class="tipdelete" href="#" title="Delete"><i class="icon-remove"></i></a> </div>
 					        </li>
 					        <li class="clearfix">
-					          <div class="txt">问题：<span class="todotext " name="question"> Luanch This theme on Themeforest </span>权重： <span class="todotext " name="power"> Luanch This theme on Themeforest </span> </div>
+					          <div class="txt"><span class="label label-info">问题：</span><span class="todotext " name="question"> 教学重点突出，难度、深度控制适当，注意与学生已有知识经验相衔接 </span><span class="label label-success">权重：</span> <span class="todotext " name="power">1</span> </div>
 					          <div class="pull-right"> <a class="tipdelete" href="#" title="Delete"><i class="icon-remove"></i></a> </div>
 					        </li>
 					        <li class="clearfix">
-					          <div class="txt">问题：<span class="todotext " name="question"> Luanch This theme on Themeforest </span>权重： <span class="todotext " name="power"> Luanch This theme on Themeforest </span> </div>
+					          <div class="txt"><span class="label label-info">问题：</span><span class="todotext " name="question"> 善于设疑导思指导学习方法，围绕重点问题和难点问题引导学生积极探究 </span><span class="label label-success">权重：</span> <span class="todotext " name="power">1</span> </div>
 					          <div class="pull-right"> <a class="tipdelete" href="#" title="Delete"><i class="icon-remove"></i></a> </div>
 					        </li>
 					        <li class="clearfix">
-					          <div class="txt">问题：<span class="todotext " name="question"> Luanch This theme on Themeforest </span>权重： <span class="todotext " name="power"> Luanch This theme on Themeforest </span> </div>
+					          <div class="txt"><span class="label label-info">问题：</span><span class="todotext " name="question"> 教学方法手段运用合理，施教步骤清晰，学生有效参与 </span><span class="label label-success">权重：</span><span class="todotext " name="power">1</span> </div>
 					          <div class="pull-right"> <a class="tipdelete" href="#" title="Delete"><i class="icon-remove"></i></a> </div>
 					        </li>
 					        <li class="clearfix">
-					          <div class="txt">问题：<span class="todotext " name="question"> Luanch This theme on Themeforest </span>权重： <span class="todotext " name="power"> Luanch This theme on Themeforest </span> </div>
+					          <div class="txt"><span class="label label-info">问题：</span><span class="todotext " name="question"> 灵活处理教学事件，体现教学智慧 </span><span class="label label-success">权重：</span> <span class="todotext " name="power">1</span> </div>
 					          <div class="pull-right"> <a class="tipdelete" href="#" title="Delete"><i class="icon-remove"></i></a> </div>
 					        </li>
 					      </ul>

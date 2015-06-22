@@ -37,10 +37,10 @@ public class CourseServiceImpl {
 	
 
 	public ArrayList<Chapter> getChapterList(String pState){
-		ArrayList<Chapter> lc = new ArrayList<Chapter>();
-		if(pState.equals("t"))
+		//ArrayList<Chapter> lc = new ArrayList<Chapter>();
+		//if(pState.equals("t"))
 		return (ArrayList<Chapter>)chd.findAll();
-		else return lc;
+		//else return lc;
 	} 
 	
 	/***

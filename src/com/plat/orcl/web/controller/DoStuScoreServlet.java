@@ -5,6 +5,8 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Timer;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -49,6 +51,11 @@ public class DoStuScoreServlet extends HttpServlet {
 		}
 		double finalScore = (sum/total)*100;
 		ssi.updateStuScore(new StuScore(formid,pid,pupid,finalScore));
+		Map<String, Timer>timerMap = (Map<String, Timer>) request.getServletContext().getAttribute("timerMap");
+		if(timerMap!=null){
+			Timer t = timerMap.get(PubUtil.MAILTIMER+formid+PubUtil.SEPARATOR+pupid);
+			if(t!=null) t.cancel();
+		}
 		response.sendRedirect(request.getContextPath()+"/servlet/ScoreDetailServlet?pid="+pid+"&formid"+formid);
 		/*request.setAttribute("testscore", ts);
 		request.setAttribute("test", tsi.getOneTest(testid));
